@@ -1,0 +1,28 @@
+<div class="login-container">
+    <div class="background-overlay">
+    </div>
+    <h1 class="welcome-text">Welcome to <span class="highlight">Etiya</span> Sports Club</h1>
+    <div class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="username">Username:</label>
+        <input id="username" formControlName="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" required>
+        
+        <div class="options">
+            <div class="options-content">
+                <div class="remember-me" style="justify-content: center; align-items: center;">
+                    <label for="remember" style="width: 150px; margin-right: -30px;">Beni hatırla</label>
+                    <input type="checkbox" id="remember" style="margin-top: 10px;">
+                </div>
+              <a href="/">Kayıt ol</a>
+            </div>
+            <button class="submit-button">Giriş Yap</button>
+        </div>
+          
+
+      </form>
+    </div>
+  </div>
+  

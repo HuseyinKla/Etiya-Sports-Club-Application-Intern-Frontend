@@ -1,0 +1,93 @@
+.login-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Sayfa kaydırmasını önler */
+  }
+  
+  .background-overlay {
+    flex: 2;
+    position: relative; /* Yazının konumlandırılması için */
+    background: url('../../../assets/bg.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(5px); /* Arka plan resmini blur yapmak için */
+    z-index: -10;
+  }
+  
+  .welcome-text {
+    position: absolute; /* Yazıyı resmin üstüne yerleştirir */
+    top: 10%; /* Yatayda ortalar */
+    left: 30%; /* Dikeyde ortalar */
+    transform: translate(-50%, -50%); /* Tam ortalamak için */
+    font-size: 4em; /* Yazıyı büyük yapmak için */
+    color: #f28324;
+    text-align: center;
+    z-index: 10; /* Yazıyı arka planın üzerinde gösterir */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Yazının okunabilirliğini artırmak için gölge ekler */
+  }
+  
+  .highlight {
+    font-weight: bold; /* Vurgulamak için kalın yazı */
+    color: #242444; /* "Etiya" kısmının özel rengi */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Yazının okunabilirliğini artırmak için gölge ekler */
+  }
+
+  .login-form {
+    flex: 1;
+    background-color: #242444;
+    padding: 50px;
+    color: #f28324;
+    position: relative;
+    z-index: 2; /* Formu ön planda gösterir */
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column; /* Yüksekliği boyunca düzenler */
+    height: 200px; /* Yükseklik, ihtiyaca göre ayarlanabilir */
+  }
+  
+  .options-content {
+    display: flex;
+    justify-content: space-between; /* Sol ve sağ köşelere yerleştirir */
+    align-items: center; /* Dikeyde ortalar */
+  }
+
+  .remember-me {
+  display: flex; /* Checkbox ve yazıyı yatay hizalar */
+  align-items: center; /* Dikeyde ortalar */
+  }
+
+  .submit-button {
+    background-color: #f28324;
+    color: #242444;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-top: 10px;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #a45c2c;
+    border-radius: 5px;
+  }
+  
+  label {
+    font-size: 1em;
+  }
+  
+  a {
+    color: #f28324;
+    text-decoration: none;
+  }
+  
+
+  
+  button:hover {
+    background-color: #a45c2c; /* Hover efekti */
+  }
+  
