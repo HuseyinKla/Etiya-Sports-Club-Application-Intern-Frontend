@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AuthService } from 'src/app/auth-service.service';
-
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login-service/login.service';
 
 @Component({
   selector: 'app-login-page',
@@ -10,6 +10,11 @@ import { AuthService } from 'src/app/auth-service.service';
 })
 export class LoginPageComponent implements OnInit {
 
+  constructor(private loginService: LoginService, private router: Router) {}
+
+  ngOnInit(): void {
+  }
+
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
@@ -17,15 +22,15 @@ export class LoginPageComponent implements OnInit {
 
 
   onSubmit(){
-    console.log('Username: ',this.loginForm.value.username)
-    console.log('Password: ',this.loginForm.value.password)
 
     const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
 
-    if(username != null){
-      this.authService.login(username).subscribe(
+    if(username != null && password != null){
+      this.loginService.login(username, password).subscribe(
         response => {
           console.log("login data: ", response)
+          this.router.navigate(['/market'])
         },
         error => {
           console.log("Error: ",error)
@@ -33,12 +38,6 @@ export class LoginPageComponent implements OnInit {
       );
     }
 
-  }
-
-
-  constructor(private authService: AuthService) {}
-
-  ngOnInit(): void {
   }
 
 }

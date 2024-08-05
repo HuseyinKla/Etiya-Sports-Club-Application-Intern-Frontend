@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242444; /* Arka plan rengi */
+    padding: 10px 20px;
+  }
+  
+  .navbar-logo {
+    font-size: 24px;
+    color: #f28324; /* Yazı rengi */
+  }
+  
+  .navbar-links a {
+    color: #f28324;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 10px 0;
+    position: relative;
+  }
+  
+  .navbar-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #f28324; /* Seçili olan tabın alt çizgisi */
+  }
+  
+  .navbar-profile a {
+    color: #f28324;
+    text-decoration: none;
+    padding: 10px;
+  }
+  

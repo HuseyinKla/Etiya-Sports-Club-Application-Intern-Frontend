@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Etiya-Sports-Club-Application-Intern-Frontend';
+  title = 'Etiya-Sports-Club';
+
+
+  constructor(private router: Router) {  }
+
+  showHeaderFooter(): boolean {
+    return this.router.url !== "/login"
+  }
 }

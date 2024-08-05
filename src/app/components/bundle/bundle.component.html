@@ -1,0 +1,10 @@
+<div *ngFor="let bundle of bundles" class="bundle-card">
+    <h3>{{ bundle.bundleName }}</h3>
+    <p>Paylaşan: {{ bundle.name }}</p>
+    <p>Açıklama: {{ bundle.bundleDescription }}</p>
+    <p>Fiyat: {{ bundle.bundlePrice | currency }}</p>
+    <p>Ders Sayısı: {{ bundle.totalLessonNumber }}</p>
+    <button (click)="openModal(bundle.bundleId)">Preview</button>
+</div>
+
+<app-bundle-modal [isVisible]="isModalVisible" [courses]="selectedBundleCourses" (closeModal)="closeModal()"></app-bundle-modal>

@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<div *ngIf="showHeaderFooter()">
+    <app-navbar></app-navbar>
+    <!-- Diğer içerikler -->
+  </div>
+  <router-outlet></router-outlet>
+
+  

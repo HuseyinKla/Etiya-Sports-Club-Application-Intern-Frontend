@@ -1,0 +1,18 @@
+<div class="modal" *ngIf="isVisible">
+    <div class="modal-content">
+      <span class="close" (click)="close()">&times;</span>
+      <h2>Kurs Detayları</h2>
+        <h3>Bundle idsi: {{ courses.bundleId }}</h3>
+        <p>Bundle ismi: {{ courses.bundleName }}</p>
+        <p>Bundle açıklaması: {{ courses.courseDescription }}</p>
+        <p>Bundle Süresi: {{ courses.duration }} saat</p>
+
+        <div *ngFor="let course of courses.courses" class="bundle-card">
+          <h3>Kurs idsi: {{ course.courseId }}</h3>
+          <p>Paylaşan: {{ course.courseName }}</p>
+          <p>Açıklama: {{ course.courseDescription }}</p>
+      </div>
+      
+    </div>
+  </div>
+  
