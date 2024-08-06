@@ -29,7 +29,7 @@ export class LoginPageComponent implements OnInit {
     if(username != null && password != null){
       this.loginService.login(username, password).subscribe(
         response => {
-          console.log("login data: ", response)
+          this.loginService.setUser(response.userName);
           this.router.navigate(['/market'])
         },
         error => {

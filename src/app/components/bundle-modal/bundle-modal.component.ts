@@ -22,14 +22,4 @@ export class BundleModalComponent implements OnInit {
     this.closeModal.emit();
   }
 
-  /*getCoursesByBundleId(bundleId: Number): void {
-    console.log("bundle numarası: ", bundleId);
-    this.bundleService.getCoursesByBundleId(bundleId).subscribe((data: any[]) => {
-      this.courses = data;
-      console.log(data);
-    })
-  }*/
-
-
-
 }

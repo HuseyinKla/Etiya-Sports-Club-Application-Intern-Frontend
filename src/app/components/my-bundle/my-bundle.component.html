@@ -1,0 +1,13 @@
+<div *ngFor="let bundle of myBundles" class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ bundle.bundleName }}</h5>
+      <p class="card-text">
+        <strong>Bundle ID:</strong> {{ bundle.bundleId }}<br>
+        <strong>Price:</strong> {{ bundle.bundlePrice }}<br>
+        <strong>Description:</strong> {{ bundle.bundleDescription }}<br>
+        <strong>Total Lessons:</strong> {{ bundle.totalLessonNumber }}<br>
+        <strong>Purchase Date:</strong> {{ bundle.purchaseDate | date:'longDate' }}
+      </p>
+    </div>
+  </div>
+  

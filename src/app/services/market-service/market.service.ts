@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 interface Bundle {
-  bundleId: string;
-  userId: string;
+  bundleId: Number;
+  userId: Number;
   name: string;
   bundleName: string;
   bundleDescription: string;
-  bundlePrice: number;
-  totalLessonNumber: number;
+  bundlePrice: Number;
+  totalLessonNumber: Number;
 }
 
 @Injectable({

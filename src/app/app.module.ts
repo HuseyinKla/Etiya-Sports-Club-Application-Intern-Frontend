@@ -13,6 +13,7 @@ import { CalendarPageComponent } from './pages/calendar-page/calendar-page.compo
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { BundleComponent } from './components/bundle/bundle.component';
 import { BundleModalComponent } from './components/bundle-modal/bundle-modal.component';
+import { MyBundleComponent } from './components/my-bundle/my-bundle.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BundleModalComponent } from './components/bundle-modal/bundle-modal.com
     CalendarPageComponent,
     ProfilePageComponent,
     BundleComponent,
-    BundleModalComponent
+    BundleModalComponent,
+    MyBundleComponent
   ],
   imports: [
     BrowserModule,

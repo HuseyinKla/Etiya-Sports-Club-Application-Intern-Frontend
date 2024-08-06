@@ -4,7 +4,9 @@
     <p>Açıklama: {{ bundle.bundleDescription }}</p>
     <p>Fiyat: {{ bundle.bundlePrice | currency }}</p>
     <p>Ders Sayısı: {{ bundle.totalLessonNumber }}</p>
-    <button (click)="openModal(bundle.bundleId)">Preview</button>
+    <button class="preview-button" (click)="openModal(bundle.bundleId)">Preview</button>
+    <button class="buy-button" (click)="buyBundle(bundle.bundleId)">Bu Bundle'ı Al</button>
+
 </div>
 
 <app-bundle-modal [isVisible]="isModalVisible" [courses]="selectedBundleCourses" (closeModal)="closeModal()"></app-bundle-modal>
