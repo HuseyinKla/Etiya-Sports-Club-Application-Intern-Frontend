@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login-service/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isDropdownOpen = false;
+
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  logout() {
+    this.loginService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  goToProfile() {
+    this.isDropdownOpen = false;
+  }
+
+  goToSettings() {
+    this.isDropdownOpen = false;
+  }
+
 
 }

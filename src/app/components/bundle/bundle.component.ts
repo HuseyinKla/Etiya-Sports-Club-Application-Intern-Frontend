@@ -37,15 +37,14 @@ export class BundleComponent implements OnInit {
 
   buyBundle(bundleId: Number): void{
 
-    this.loginService.user$.subscribe(user => {
-      this.user = user
-    });
-
+    this.user = this.loginService.getUsername();
 
     if(this.user != undefined){
       this.buyBundleService.buyBundle(this.user, bundleId).subscribe((data: any[]) => {
       })
     }
+
+
   }
 
 

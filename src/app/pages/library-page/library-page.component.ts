@@ -10,19 +10,17 @@ import { UsersBundleService } from 'src/app/services/users-bundle-service/users-
 export class LibraryPageComponent implements OnInit {
 
 
-  user: any;
+  username: any;
   myBundles: any[] | undefined;
 
   constructor(private userbundleService: UsersBundleService, private loginService: LoginService) { }
 
   ngOnInit(): void {
 
-    this.loginService.user$.subscribe(user => {
-      this.user = user;
-    })
+    this.username = this.loginService.getUsername();
 
-    if(this.user != undefined){
-      this.userbundleService.getBundlesByUsername(this.user).subscribe((data: any[]) => {
+    if(this.username != undefined){
+      this.userbundleService.getBundlesByUsername(this.username).subscribe((data: any[]) => {
         this.myBundles = data;
       });
     }

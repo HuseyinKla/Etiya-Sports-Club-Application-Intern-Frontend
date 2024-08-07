@@ -8,7 +8,19 @@
       <a routerLink="/calendar" routerLinkActive="active">Calendar</a>
     </div>
     <div class="navbar-profile">
-      <a routerLink="/profile" routerLinkActive="active">Profile</a>
+
+      <div class="profile-dropdown">
+        <button (click)="toggleDropdown()" class="profile-button">
+          Profile
+        </button>
+        <div class="dropdown-menu" [class.show]="isDropdownOpen">
+          <a href="javascript:void(0);" class="dropdown-item" (click)="goToProfile()">Profile</a>
+          <a href="javascript:void(0);" class="dropdown-item" (click)="goToSettings()">Settings</a>
+          <a href="javascript:void(0);" class="dropdown-item" (click)="logout()" >Logout</a>
+        </div>
+      </div>
+
+
     </div>
   </nav>
   
