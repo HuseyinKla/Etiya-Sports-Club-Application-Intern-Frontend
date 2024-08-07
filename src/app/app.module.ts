@@ -14,6 +14,9 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { BundleComponent } from './components/bundle/bundle.component';
 import { BundleModalComponent } from './components/bundle-modal/bundle-modal.component';
 import { MyBundleComponent } from './components/my-bundle/my-bundle.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { MyBundleComponent } from './components/my-bundle/my-bundle.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FullCalendarModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

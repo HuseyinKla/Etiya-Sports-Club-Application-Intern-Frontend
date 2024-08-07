@@ -1,0 +1,12 @@
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+
+.calendar{
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+}
