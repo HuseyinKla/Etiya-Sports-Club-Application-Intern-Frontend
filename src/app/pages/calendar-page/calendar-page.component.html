@@ -1,3 +1,12 @@
+<div class="modal" [ngClass]="{'show': isModalVisible}" (click)="hideModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close-button" (click)="hideModal()">&times;</span>
+      <h2>Bundle Info</h2>
+      <p><strong>Bundle Name:</strong> {{ modalTitle }}</p>
+      <p><strong>Description:</strong> {{ modalDescription }}</p>
+      <p><strong>Remaining Days:</strong> {{ modalRemainingDays }}</p>
+    </div>
+</div>
 <div class="calendar-container">
     <full-calendar  class="calendar" [options]="calendarOptions"></full-calendar>
 </div>

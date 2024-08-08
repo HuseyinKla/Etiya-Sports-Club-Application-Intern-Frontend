@@ -1,17 +1,77 @@
 .card {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 16px;
-    margin: 16px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  
-  .card-text {
-    line-height: 1.6;
-  }
-  
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  line-height: 1.6;
+}
+
+.progress-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.progress-button:hover {
+  background-color: #45a049;
+}
+
+.progress-button:disabled {
+  background-color: #d6d6d6;
+  color: #a1a1a1;
+  cursor: not-allowed;
+  border: 1px solid #ccc;
+  opacity: 0.6;
+}
+
+.progress-button:disabled::after {
+  content: 'Please finish the bundle you started.';
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f44336;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: block;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s, visibility 0.7s;
+}
+
+.progress-button:disabled:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.status-not {
+  color: red;
+}
+
+.status-processing {
+  color: orange;
+}
+
+.status-finished {
+  color: green;
+}

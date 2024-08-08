@@ -15,6 +15,7 @@ import { BundleComponent } from './components/bundle/bundle.component';
 import { BundleModalComponent } from './components/bundle-modal/bundle-modal.component';
 import { MyBundleComponent } from './components/my-bundle/my-bundle.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { WrongProgressInitModalComponent } from './components/wrong-progress-init-modal/wrong-progress-init-modal.component';
 
 
 
@@ -29,7 +30,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     ProfilePageComponent,
     BundleComponent,
     BundleModalComponent,
-    MyBundleComponent
+    MyBundleComponent,
+    WrongProgressInitModalComponent
   ],
   imports: [
     BrowserModule,

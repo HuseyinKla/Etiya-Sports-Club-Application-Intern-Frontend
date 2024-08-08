@@ -1,13 +1,26 @@
+<app-wrong-progress-init-modal [isVisible]="isModalVisible" (close)="hideModal()"></app-wrong-progress-init-modal>
+
 <div *ngFor="let bundle of myBundles" class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{ bundle.bundleName }}</h5>
-      <p class="card-text">
-        <strong>Bundle ID:</strong> {{ bundle.bundleId }}<br>
-        <strong>Price:</strong> {{ bundle.bundlePrice }}<br>
-        <strong>Description:</strong> {{ bundle.bundleDescription }}<br>
-        <strong>Total Lessons:</strong> {{ bundle.totalLessonNumber }}<br>
-        <strong>Purchase Date:</strong> {{ bundle.purchaseDate | date:'longDate' }}
-      </p>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ bundle.bundleName }}</h5>
+    <p class="card-text">
+      <strong>Bundle ID:</strong> {{ bundle.bundleId }}<br>
+      <strong>Price:</strong> {{ bundle.bundlePrice }}<br>
+      <strong>Description:</strong> {{ bundle.bundleDescription }}<br>
+      <strong>Total Lessons:</strong> {{ bundle.totalLessonNumber }}<br>
+      <strong>Purchase Date:</strong> {{ bundle.purchaseDate | date:'longDate' }}<br>
+      <strong>PROCESS STATUS:</strong> 
+      <span [ngClass]="{
+        'status-not': bundle.processStatus === 'NOT',
+        'status-processing': bundle.processStatus === 'PROCESSING',
+        'status-finished': bundle.processStatus === 'FINISHED'
+      }">
+        {{ bundle.processStatus }}
+      </span>
+      <br>
+      <button (click)="createProgress(bundle.bundleId, bundle.totalLessonNumber, bundle.processStatus)" [disabled]="isProgressInitButtonDisabled" class="progress-button">
+        Start this bundle
+      </button>
+    </p>
   </div>
-  
+</div>

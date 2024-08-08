@@ -2,6 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Timestamp } from 'rxjs';
 
+
+enum ProcessStatus {
+  NOT = 'NOT',
+  PROCESSING = 'PROCESSING',
+  FINISHED = 'FINISHED'
+}
+
 interface Bundles {
   bundleId: number;
   bundleName: string;
@@ -9,8 +16,8 @@ interface Bundles {
   bundlePrice: number;
   totalLessonNumber: number;
   purchaseDate: Timestamp<any>;
+  processStatus: ProcessStatus;
 }
-
 
 @Injectable({
   providedIn: 'root'
