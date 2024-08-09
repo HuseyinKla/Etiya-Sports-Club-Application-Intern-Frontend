@@ -15,6 +15,7 @@ interface bundleType {
   bundlePrice: Number,
   bundleDescription: String,
   totalLessonNumber: Number,
+  remainingCourseNumber: Number,
   purchaseDate: Timestamp<any>;
   processStatus: ProcessStatus
 };
@@ -42,7 +43,6 @@ export class LibraryPageComponent implements OnInit {
         this.myBundles = data;
         const processingCount = this.myBundles?.filter(bundle => bundle.processStatus === ProcessStatus.PROCESSING).length || 0;
 
-        console.log("Processing counter -> ", processingCount);
         if(processingCount == 0){
           this.isProgressInitButtonDisabled = false;
         }else{

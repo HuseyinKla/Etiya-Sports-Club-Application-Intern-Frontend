@@ -7,6 +7,16 @@
       <p><strong>Remaining Days:</strong> {{ modalRemainingDays }}</p>
     </div>
 </div>
+
+<div *ngIf="isProgressModalVisible" class="modal-backdrop" (click)="closeProgressModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Process Info</h2>
+    <p>Do you really want to progress the bundle?</p>
+    <button class="modal-button modal-button-yes" (click)="proceedWithBundle()">Yes</button>
+    <button class="modal-button modal-button-no" (click)="closeProgressModal()">No</button>
+  </div>
+</div>
+
 <div class="calendar-container">
     <full-calendar  class="calendar" [options]="calendarOptions"></full-calendar>
 </div>

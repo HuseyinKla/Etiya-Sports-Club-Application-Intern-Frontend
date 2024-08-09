@@ -7,7 +7,7 @@
   .background-overlay {
     flex: 2;
     position: relative; /* Yazının konumlandırılması için */
-    background: url('../../../assets/bg.jpg') no-repeat center center;
+    background: url('../../../../assets/bg.jpg') no-repeat center center;
     background-size: cover;
     filter: blur(5px); /* Arka plan resmini blur yapmak için */
     z-index: -10;

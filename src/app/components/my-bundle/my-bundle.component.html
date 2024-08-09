@@ -15,8 +15,13 @@
         'status-processing': bundle.processStatus === 'PROCESSING',
         'status-finished': bundle.processStatus === 'FINISHED'
       }">
-        {{ bundle.processStatus }}
+        {{ bundle.processStatus }}<br>
+
       </span>
+      <span *ngIf="bundle.processStatus === 'PROCESSING'"> <strong>Remaining Course:</strong> {{bundle.remainingCourseNumber}}</span>
+      <span *ngIf="bundle.processStatus === 'NOT'"> <strong>Not Started Yet</strong></span>
+      <span *ngIf="bundle.processStatus === 'FINISHED'"> <strong>This Bundle Finished</strong> {{bundle.remainingCourseNumber}}</span>
+
       <br>
       <button (click)="createProgress(bundle.bundleId, bundle.totalLessonNumber, bundle.processStatus)" [disabled]="isProgressInitButtonDisabled" class="progress-button">
         Start this bundle

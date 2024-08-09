@@ -15,6 +15,7 @@ interface Bundles {
   bundleDescription: string;
   bundlePrice: number;
   totalLessonNumber: number;
+  remainingCourseNumber: number;
   purchaseDate: Timestamp<any>;
   processStatus: ProcessStatus;
 }
@@ -30,4 +31,6 @@ export class UsersBundleService {
 
   getBundlesByUsername(username: String): Observable<any> {
     return this.http.get<Bundles[]>(`${this.apiUrl}/${username}`)
-  }}
+  }
+
+}

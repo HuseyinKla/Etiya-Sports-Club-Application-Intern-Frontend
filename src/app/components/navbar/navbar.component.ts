@@ -10,10 +10,12 @@ import { LoginService } from 'src/app/services/login-service/login.service';
 export class NavbarComponent implements OnInit {
 
   isDropdownOpen = false;
+  userRole: String | any;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+    this.userRole = this.loginService.getUserRole();
   }
 
   toggleDropdown() {

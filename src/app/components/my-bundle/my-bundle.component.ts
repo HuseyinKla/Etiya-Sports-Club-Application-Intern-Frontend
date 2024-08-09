@@ -23,9 +23,7 @@ export class MyBundleComponent implements OnInit {
   createProgress(bundleId: number, totalLessonNumber: number, processStatus: any){
 
     if(processStatus != 'NOT'){
-      console.log("YANLIŞ");
       this.isModalVisible = !this.isModalVisible;
-
     }else{
       this.createProgressService.createProgress(bundleId, totalLessonNumber).subscribe(
         response => {

@@ -3,9 +3,23 @@
       <!-- Logonuz buraya gelebilir -->
     </div>
     <div class="navbar-links">
-      <a routerLink="/market" routerLinkActive="active">Market</a>
-      <a routerLink="/library" routerLinkActive="active">Library</a>
-      <a routerLink="/calendar" routerLinkActive="active">Calendar</a>
+      
+      <div *ngIf="userRole === 'member' ">
+        <a routerLink="/market" routerLinkActive="active">Market</a>
+        <a routerLink="/library" routerLinkActive="active">Library</a>
+        <a routerLink="/calendar" routerLinkActive="active">Calendar</a>
+      </div>
+
+      <div *ngIf="userRole === 'admin'">
+        <a routerLink="/create-bundle" routerLinkActive="active">Create Bundle</a>
+        <a routerLink="/all-logs" routerLinkActive="active">All Logs</a>
+        <a routerLink="/remaining-courses" routerLinkActive="active">Remaining Courses</a>
+        <!-- ALL INFO PAGE --> 
+        <a routerLink="/calendar" routerLinkActive="active">Calendar</a>
+
+      </div>
+
+
     </div>
     <div class="navbar-profile">
 

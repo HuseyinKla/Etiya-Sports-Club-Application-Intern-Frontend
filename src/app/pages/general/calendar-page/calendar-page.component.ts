@@ -3,6 +3,7 @@ import { CalendarOptions, EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { Timestamp } from 'rxjs';
 import { LoginService } from 'src/app/services/login-service/login.service';
+import { ProgressBundleService } from 'src/app/services/progress-bundle-service/progress-bundle.service';
 import { UsersBundleService } from 'src/app/services/users-bundle-service/users-bundle.service';
 
 enum ProcessStatus {
@@ -17,9 +18,19 @@ interface bundleType {
   bundlePrice: Number,
   bundleDescription: String,
   totalLessonNumber: number,
+  remainingCourseNumber: number,
   purchaseDate: Timestamp<any>;
   processStatus: ProcessStatus
 };
+
+interface Progress {
+  username: string;
+  bundleName: string;
+  bundleDescription: string;
+  totalLessonNumber: number;
+  remainingCourseNumber: number;
+}
+
 
 @Component({
   selector: 'app-calendar-page',
@@ -35,16 +46,21 @@ export class CalendarPageComponent implements OnInit {
   modalTitle: string = '';
   modalDescription: string = '';
   modalRemainingDays: number = 0;
+  isProgressModalVisible: boolean = false;
+  isProgressButtonDisabled: boolean = true;
+  userRole: String | any;
 
-  constructor(private userBundleService: UsersBundleService, private loginService: LoginService) { }
+  constructor(private userBundleService: UsersBundleService, private loginService: LoginService, private progressBundleService: ProgressBundleService) { }
 
   ngOnInit(): void {
     this.username = this.loginService.getUsername();
     if(this.username != undefined){
       this.userBundleService.getBundlesByUsername(this.username).subscribe((data: any[]) => {
         this.myBundle = data.filter(bundle => bundle.processStatus === ProcessStatus.PROCESSING);
+        this.userRole = this.loginService.getUserRole();
         this.myBundle.map(bundle => {
           this.addEvent(bundle);
+          this.isProgressButtonDisabled = false;
         });
       });
     }
@@ -54,7 +70,7 @@ export class CalendarPageComponent implements OnInit {
     const today = new Date();
     const startDate = today.toISOString().split('T')[0];
     var end = new Date(today);
-    end.setDate(today.getDate() + bundle.totalLessonNumber);
+    end.setDate(today.getDate() + bundle.remainingCourseNumber);
     const endDate = end.toISOString().split('T')[0];
 
     const event: EventInput = {
@@ -66,10 +82,9 @@ export class CalendarPageComponent implements OnInit {
       textColor: '#f28324',
       extendedProps: {
         description: bundle.bundleDescription,
-        remainingDays: bundle.totalLessonNumber,
+        remainingDays: bundle.remainingCourseNumber,
       }
     };
-
     this.events.push(event);
     this.calendarOptions.events = [...this.events];
   }
@@ -80,6 +95,19 @@ export class CalendarPageComponent implements OnInit {
     eventClick: (arg: any) => this.handleDateClick(arg.event),
     firstDay: 1,
     events: this.events,
+    customButtons: {
+      myCustomButtons: {
+        text: 'Process Bundle',
+        click: () => {
+          this.isProgressModalVisible = !this.isProgressModalVisible
+        },
+      },
+    },
+    headerToolbar:{
+      right: 'today prev,next',
+      center: 'title',
+      left: 'myCustomButtons'
+    }
   };
 
   handleDateClick(event: any) {
@@ -92,4 +120,28 @@ export class CalendarPageComponent implements OnInit {
   hideModal() {
     this.isModalVisible = false;
   }
+  
+  closeProgressModal() {
+    this.isProgressModalVisible = false;
+  }
+  
+  proceedWithBundle() {
+    if(this.userRole === 'admin'){
+      alert("Admin cannot start a bundle");
+    }else if(this.userRole === 'member'){
+      if(!this.isProgressButtonDisabled){
+        this.progressBundleService.updateProgressBundle().subscribe((data: Progress) => {
+          console.log(data);
+          if(data.remainingCourseNumber == 0){
+            this.isProgressButtonDisabled = true;
+          }
+        })
+      }else{
+        alert("Please start a bundle");
+      }
+  }
+  this.closeProgressModal();
+  }
+
+
 }

@@ -29,7 +29,17 @@ export class LoginPageComponent implements OnInit {
     if(username != null && password != null){
       this.loginService.login(username, password).subscribe(
         response => {
-          this.router.navigate(['/market'])
+          this.loginService.createLog("log").subscribe(
+            logResponse => {
+              console.log(logResponse);
+              console.log(response);
+            }
+          )
+          if(response.roleName === 'member'){
+            this.router.navigate(['/market'])
+          }else if(response.roleName === 'admin'){
+            this.router.navigate(['/create-bundle'])
+          }
         },
         error => {
           console.log("Error: ",error)
