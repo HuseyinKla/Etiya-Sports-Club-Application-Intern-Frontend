@@ -14,14 +14,14 @@ import { NotFoundPageComponent } from './pages/general/not-found-page/not-found-
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
-  { path: 'calendar', component: CalendarPageComponent },
+  { path: 'calendar', component: CalendarPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['member', 'admin'] } },
 
-  { path: 'market', component: MarketPageComponent, canActivate: [RoleGuard], data: { expectedRole: 'member'}},
-  { path: 'library', component: LibraryPageComponent, canActivate: [RoleGuard], data: { expectedRole: 'member'} },
+  { path: 'market', component: MarketPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['member'] } },
+  { path: 'library', component: LibraryPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['member'] } },
 
-  { path: 'create-bundle', component: CreateBundlePageComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin'}},
-  { path: 'all-logs', component: AllLogsPageComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin'}},
-  { path: 'remaining-courses', component: RemainingCoursesPageComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin'}},
+  { path: 'create-bundle', component: CreateBundlePageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
+  { path: 'all-logs', component: AllLogsPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
+  { path: 'remaining-courses', component: RemainingCoursesPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
   
   { path: '403', component: NotFoundPageComponent },
   { path: '**', redirectTo: '403' }

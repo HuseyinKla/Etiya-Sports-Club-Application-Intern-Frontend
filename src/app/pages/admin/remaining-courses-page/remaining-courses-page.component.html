@@ -1,1 +1,8 @@
-<p>remaining-courses-page works!</p>
+<div class="progress-container">
+    <div class="progress-card" *ngFor="let progress of progresses">
+      <h3>Member Name: {{ progress.name }}</h3>
+      <p>Bundle Name: {{ progress.bundleName }}</p>
+      <p>Remaining Courses: {{ progress.remainingCourseNumber }}</p>
+    </div>
+  </div>
+  

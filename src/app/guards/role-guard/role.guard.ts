@@ -13,13 +13,13 @@ export class RoleGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const expectedRole = route.data['expectedRole'];
-      const currentRole = this.loginService.getUserRole();
+      const expectedRoles = route.data['expectedRole'] as Array<string>;
+      const currentRole = this.loginService.getUserRole() || '';
 
-      if(currentRole === expectedRole){
+      if (expectedRoles.includes(currentRole)) {
         return true;
-      }else{
-        this.router.navigate(['403']);
+      } else {
+        this.router.navigate(['/403']);
         return false;
       }
   }

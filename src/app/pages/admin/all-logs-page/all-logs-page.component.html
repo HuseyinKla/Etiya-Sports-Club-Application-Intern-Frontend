@@ -1,1 +1,8 @@
-<p>all-logs-page works!</p>
+<div class="log-container">
+    <div class="log-card" *ngFor="let log of logs">
+      <h3>Username: {{ log.username }}</h3>
+      <p>Date: {{ log.logDate | date: 'yyyy-MM-dd HH:mm' }}</p>
+      <p>Action: {{ log.action }}</p>
+    </div>
+  </div>
+  
