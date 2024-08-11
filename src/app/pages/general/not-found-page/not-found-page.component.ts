@@ -18,11 +18,11 @@ export class NotFoundPageComponent implements OnInit {
     const role = this.loginService.getUserRole();
 
     if (role === 'admin') {
-      this.router.navigate(['/create-bundle']); // Admin ana sayfasına yönlendir
+      this.router.navigate(['/admin-bundle']);
     } else if (role === 'member') {
-      this.router.navigate(['/market']); // Member ana sayfasına yönlendir
+      this.router.navigate(['/market']);
     } else {
-      this.router.navigate(['/login']); // Erişim reddedildi sayfasına yönlendir
+      this.router.navigate(['/login']);
     }
   }
 

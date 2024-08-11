@@ -38,7 +38,7 @@ export class LoginPageComponent implements OnInit {
           if(response.roleName === 'member'){
             this.router.navigate(['/market'])
           }else if(response.roleName === 'admin'){
-            this.router.navigate(['/create-bundle'])
+            this.router.navigate(['/admin-bundles'])
           }
         },
         error => {

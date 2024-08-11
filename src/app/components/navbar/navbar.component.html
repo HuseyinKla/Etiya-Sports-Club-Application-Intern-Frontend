@@ -11,6 +11,7 @@
       </div>
 
       <div *ngIf="userRole === 'admin'">
+        <a routerLink="/admin-bundles" routerLinkActive="active">My Bundles</a>
         <a routerLink="/create-bundle" routerLinkActive="active">Create Bundle</a>
         <a routerLink="/all-logs" routerLinkActive="active">All Logs</a>
         <a routerLink="/remaining-courses" routerLinkActive="active">Remaining Courses</a>

@@ -9,6 +9,7 @@ import { CreateBundlePageComponent } from './pages/admin/create-bundle-page/crea
 import { AllLogsPageComponent } from './pages/admin/all-logs-page/all-logs-page.component';
 import { RemainingCoursesPageComponent } from './pages/admin/remaining-courses-page/remaining-courses-page.component';
 import { NotFoundPageComponent } from './pages/general/not-found-page/not-found-page.component';
+import { AdminBundlesPageComponent } from './pages/admin/admin-bundles-page/admin-bundles-page.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'create-bundle', component: CreateBundlePageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
   { path: 'all-logs', component: AllLogsPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
   { path: 'remaining-courses', component: RemainingCoursesPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
+  { path: 'admin-bundles', component: AdminBundlesPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
   
   { path: '403', component: NotFoundPageComponent },
   { path: '**', redirectTo: '403' }

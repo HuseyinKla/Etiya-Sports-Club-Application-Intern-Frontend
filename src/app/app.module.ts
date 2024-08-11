@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/general/login-page/login-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MarketPageComponent } from './pages/member/market-page/market-page.component';
@@ -19,6 +19,7 @@ import { CreateBundlePageComponent } from './pages/admin/create-bundle-page/crea
 import { AllLogsPageComponent } from './pages/admin/all-logs-page/all-logs-page.component';
 import { RemainingCoursesPageComponent } from './pages/admin/remaining-courses-page/remaining-courses-page.component';
 import { NotFoundPageComponent } from './pages/general/not-found-page/not-found-page.component';
+import { AdminBundlesPageComponent } from './pages/admin/admin-bundles-page/admin-bundles-page.component';
 
 
 
@@ -37,14 +38,16 @@ import { NotFoundPageComponent } from './pages/general/not-found-page/not-found-
     CreateBundlePageComponent,
     AllLogsPageComponent,
     RemainingCoursesPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    AdminBundlesPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FullCalendarModule 
+    FullCalendarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
