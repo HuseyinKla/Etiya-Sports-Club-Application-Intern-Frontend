@@ -14,8 +14,6 @@ interface Bundle {
   courses: Course[];
 }
 
-
-
 @Component({
   selector: 'app-admin-bundles-page',
   templateUrl: './admin-bundles-page.component.html',
@@ -23,13 +21,10 @@ interface Bundle {
 })
 export class AdminBundlesPageComponent implements OnInit {
 
-
   bundles: Bundle[] = [];
-
+  openedBundleIndex: number | null = null;
 
   constructor(private getAdminBundlesService: GetAdminBundlesService) { }
-
-
 
   ngOnInit(): void {
     this.getAdminBundlesService.getAllBundles().subscribe(
@@ -39,4 +34,11 @@ export class AdminBundlesPageComponent implements OnInit {
     )
   }
 
+  toggleBundle(index: number): void {
+    if (this.openedBundleIndex === index) {
+      this.openedBundleIndex = null; // Close if the same bundle is clicked again
+    } else {
+      this.openedBundleIndex = index; // Open the new bundle
+    }
+  }
 }

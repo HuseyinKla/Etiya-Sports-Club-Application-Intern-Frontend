@@ -10,11 +10,14 @@ import { AllLogsPageComponent } from './pages/admin/all-logs-page/all-logs-page.
 import { RemainingCoursesPageComponent } from './pages/admin/remaining-courses-page/remaining-courses-page.component';
 import { NotFoundPageComponent } from './pages/general/not-found-page/not-found-page.component';
 import { AdminBundlesPageComponent } from './pages/admin/admin-bundles-page/admin-bundles-page.component';
+import { RegisterPageComponent } from './pages/general/register-page/register-page.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
+
   { path: 'calendar', component: CalendarPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['member', 'admin'] } },
 
   { path: 'market', component: MarketPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['member'] } },

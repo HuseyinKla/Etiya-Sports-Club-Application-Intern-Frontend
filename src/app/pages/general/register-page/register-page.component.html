@@ -1,0 +1,52 @@
+<div class="register-container">
+    <div class="background-overlay"></div>
+    <h1 class="welcome-text">Join <span class="highlight">Etiya</span> Sports Club</h1>
+    <div class="register-form">
+
+        <div class="role-selection">
+            <button 
+                [class.selected]="roleSelected === 'admin'" 
+                (click)="selectRole('admin')">
+                Admin
+            </button>
+            <button 
+                [class.selected]="roleSelected === 'member'" 
+                (click)="selectRole('member')">
+                Member
+            </button>
+        </div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" required>
+        <div *ngIf="registerForm.controls.name.touched && registerForm.controls.name.invalid" class="error">
+            Name is required and must be at least 2 characters long.
+        </div>
+
+        <label for="username">Username:</label>
+        <input id="username" formControlName="username" required>
+        <div *ngIf="registerForm.controls.username.touched && registerForm.controls.username.invalid" class="error">
+            Username is required and must be at least 3 characters long.
+        </div>
+
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" required>
+        <div *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid" class="error">
+            Please enter a valid email address.
+        </div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" required>
+        <div *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid" class="error">
+            Password is required and must be at least 6 characters long.
+        </div>
+
+        <div class="options">
+          <button class="register-button" type="submit">Register</button>
+        </div>
+      </form>
+      
+      <button class="login-button" (click)="navigateToLogin()">Already have an account? Login</button>
+    </div>
+
+  </div>
+  

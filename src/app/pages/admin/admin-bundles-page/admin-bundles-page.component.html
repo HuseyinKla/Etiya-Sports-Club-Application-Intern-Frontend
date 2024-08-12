@@ -1,25 +1,24 @@
 <div class="container">
-    <div *ngFor="let bundle of bundles" class="bundle-card">
-      <div class="bundle-header">
-        <h3>Bundle Name: {{ bundle.bundleName }}</h3>
-        <p class="bundle-description">Bundle Description: {{ bundle.bundleDescription }}</p>
-        <div class="bundle-info">
-          <p>Price: ${{ bundle.bundlePrice }}</p>
-          <p>Total Lessons: {{ bundle.totalLessonNumber }}</p>
-        </div>
-      </div>
-      <input type="checkbox" id="toggle-{{bundle.bundleName}}" class="toggle">
-      <label class="toggle-label" for="toggle-{{bundle.bundleName}}">
-       <strong>Course Details</strong> <span class="icon">&rarr;</span> <!-- İkon sağa bakıyor -->
-      </label>
-      <div class="course-details">
-        <ul>
-          <li *ngFor="let course of bundle.courses">
-            <p><strong>Course Name:</strong> {{ course.courseName }}</p>
-            <p><strong>Description:</strong> {{ course.courseDescription }}</p>
-          </li>
-        </ul>
+  <div *ngFor="let bundle of bundles; let i = index" class="bundle-card">
+    <div class="bundle-header">
+      <h3>Bundle Name: {{ bundle.bundleName }}</h3>
+      <p class="bundle-description">Bundle Description: {{ bundle.bundleDescription }}</p>
+      <div class="bundle-info">
+        <p>Price: ${{ bundle.bundlePrice }}</p>
+        <p>Total Lessons: {{ bundle.totalLessonNumber }}</p>
       </div>
     </div>
+    <input type="checkbox" id="toggle-{{bundle.bundleName}}" class="toggle" [checked]="openedBundleIndex === i" (change)="toggleBundle(i)">
+    <label class="toggle-label" for="toggle-{{bundle.bundleName}}">
+      <strong>Course Details</strong> <span class="icon">&rarr;</span>
+    </label>
+    <div class="course-details" [ngClass]="{'open': openedBundleIndex === i}">
+      <ul>
+        <li *ngFor="let course of bundle.courses">
+          <p><strong>Course Name:</strong> {{ course.courseName }}</p>
+          <p><strong>Description:</strong> {{ course.courseDescription }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
-  
+</div>

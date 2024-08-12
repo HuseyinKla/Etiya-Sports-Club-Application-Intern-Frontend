@@ -3,6 +3,7 @@
     margin: auto;
     background: #242444;
     padding: 20px;
+    margin-top: 10px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     color: #f28324;
@@ -76,7 +77,7 @@ button:disabled {
 }
 
 button[disabled]::after {
-    content: attr(title);
+    content: attr(data-title);
     position: absolute;
     bottom: -25px;
     left: 50%;

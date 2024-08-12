@@ -13,6 +13,6 @@ export class AppComponent {
   constructor(private router: Router) {  }
 
   showHeaderFooter(): boolean {
-    return !this.router.url.startsWith('/login') && this.router.url !== "/403";
+    return !this.router.url.startsWith('/login') && this.router.url !== "/403" && !this.router.url.startsWith('/register');
   }
 }

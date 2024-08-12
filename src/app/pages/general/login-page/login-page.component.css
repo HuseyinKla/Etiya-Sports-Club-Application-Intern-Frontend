@@ -1,93 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and borders are included in element's width and height */
+}
+
+body {
+  margin: 0;
+}
+
 .login-container {
-    display: flex;
-    height: 100vh;
-    overflow: hidden; /* Sayfa kaydırmasını önler */
-  }
-  
-  .background-overlay {
-    flex: 2;
-    position: relative; /* Yazının konumlandırılması için */
-    background: url('../../../../assets/bg.jpg') no-repeat center center;
-    background-size: cover;
-    filter: blur(5px); /* Arka plan resmini blur yapmak için */
-    z-index: -10;
-  }
-  
-  .welcome-text {
-    position: absolute; /* Yazıyı resmin üstüne yerleştirir */
-    top: 10%; /* Yatayda ortalar */
-    left: 30%; /* Dikeyde ortalar */
-    transform: translate(-50%, -50%); /* Tam ortalamak için */
-    font-size: 4em; /* Yazıyı büyük yapmak için */
-    color: #f28324;
-    text-align: center;
-    z-index: 10; /* Yazıyı arka planın üzerinde gösterir */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Yazının okunabilirliğini artırmak için gölge ekler */
-  }
-  
-  .highlight {
-    font-weight: bold; /* Vurgulamak için kalın yazı */
-    color: #242444; /* "Etiya" kısmının özel rengi */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Yazının okunabilirliğini artırmak için gölge ekler */
-  }
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100vw; /* Kenar boşluklarını tamamen kaldırmak için */
+  background-clip: content-box;
 
-  .login-form {
-    flex: 1;
-    background-color: #242444;
-    padding: 50px;
-    color: #f28324;
-    position: relative;
-    z-index: 2; /* Formu ön planda gösterir */
-  }
+}
 
-  .options {
-    display: flex;
-    flex-direction: column; /* Yüksekliği boyunca düzenler */
-    height: 200px; /* Yükseklik, ihtiyaca göre ayarlanabilir */
-  }
-  
-  .options-content {
-    display: flex;
-    justify-content: space-between; /* Sol ve sağ köşelere yerleştirir */
-    align-items: center; /* Dikeyde ortalar */
-  }
+.background-overlay {
+  flex: 2;
+  position: relative;
+  background: url('../../../../assets/bg.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -10;
+  width: 100vw;  /* Genişliği tam olarak doldurması için */
+  height: 100vh; /* Yüksekliği tam olarak doldurması için */
+}
 
-  .remember-me {
-  display: flex; /* Checkbox ve yazıyı yatay hizalar */
-  align-items: center; /* Dikeyde ortalar */
-  }
 
-  .submit-button {
-    background-color: #f28324;
-    color: #242444;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1em;
-    margin-top: 10px;
-  }
 
-  input {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #a45c2c;
-    border-radius: 5px;
-  }
-  
-  label {
-    font-size: 1em;
-  }
-  
-  a {
-    color: #f28324;
-    text-decoration: none;
-  }
-  
+.login-container {
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+  height: 100vh;
+  width: 100vw; /* Full viewport width */
+  overflow: hidden; /* Prevents page scroll */
+  position: relative;
+  background: none; /* Removed background from container to focus on overlay */
+}
 
-  
-  button:hover {
-    background-color: #a45c2c; /* Hover efekti */
-  }
-  
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../../../assets/bg.jpg') no-repeat center center;
+  background-size: cover; /* Ensures the background covers the entire page */
+  filter: blur(5px); /* Blurs the background image */
+  z-index: -1; /* Keeps it behind the content */
+}
+
+.welcome-text {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4em;
+  color: #f28324;
+  text-align: center;
+  z-index: 1; /* Ensures it's above the background */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow to improve readability */
+}
+
+.highlight {
+  font-weight: bold;
+  color: #242444;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.login-form {
+  background-color: #242444;
+  padding: 40px 30px;
+  color: #f28324;
+  border-radius: 10px;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for depth */
+  max-width: 400px;
+  width: 100%;
+}
+
+.options {
+  margin-top: 20px;
+}
+
+.options-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.register-button {
+  background-color: #f28324;
+  color: #242444;
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.submit-button {
+  background-color: #f28324;
+  color: #242444;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 100%; /* Ensures the button is full width */
+  margin-top: 10px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #a45c2c;
+  border-radius: 5px;
+  background-color: #2c2c4c; /* Adjusts the input background to match the theme */
+  color: #f28324; /* Input text color */
+}
+
+label {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+a {
+  color: #f28324;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #a45c2c; /* Hover effect */
+}

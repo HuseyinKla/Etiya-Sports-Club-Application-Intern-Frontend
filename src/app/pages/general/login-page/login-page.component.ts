@@ -31,8 +31,6 @@ export class LoginPageComponent implements OnInit {
         response => {
           this.loginService.createLog("log").subscribe(
             logResponse => {
-              console.log(logResponse);
-              console.log(response);
             }
           )
           if(response.roleName === 'member'){
@@ -48,5 +46,10 @@ export class LoginPageComponent implements OnInit {
     }
 
   }
+
+  navigateToRegister(){
+    this.router.navigate(['/register'])
+  }
+
 
 }

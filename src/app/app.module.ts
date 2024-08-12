@@ -20,6 +20,7 @@ import { AllLogsPageComponent } from './pages/admin/all-logs-page/all-logs-page.
 import { RemainingCoursesPageComponent } from './pages/admin/remaining-courses-page/remaining-courses-page.component';
 import { NotFoundPageComponent } from './pages/general/not-found-page/not-found-page.component';
 import { AdminBundlesPageComponent } from './pages/admin/admin-bundles-page/admin-bundles-page.component';
+import { RegisterPageComponent } from './pages/general/register-page/register-page.component';
 
 
 
@@ -39,7 +40,8 @@ import { AdminBundlesPageComponent } from './pages/admin/admin-bundles-page/admi
     AllLogsPageComponent,
     RemainingCoursesPageComponent,
     NotFoundPageComponent,
-    AdminBundlesPageComponent
+    AdminBundlesPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,

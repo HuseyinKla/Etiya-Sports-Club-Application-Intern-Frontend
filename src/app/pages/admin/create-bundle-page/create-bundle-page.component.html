@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Bundle ve Kurs Bilgileri</h2>
+    <h2>Bundle and Course Info</h2>
     <div class="wizard-container">
         <!-- Sol tarafta adım göstergesi -->
         <div class="steps">
@@ -14,71 +14,77 @@
 
                 <!-- Adım 1: Bundle Bilgileri -->
                 <div *ngIf="currentStep === 1">
-                    <h3>Adım 1: Bundle Bilgileri</h3>
-                    <label for="bundleName">Bundle Adı:</label>
+                    <h3>Step 1: Bundle Info</h3>
+                    <label for="bundleName">Bundle Name:</label>
                     <input type="text" id="bundleName" [(ngModel)]="bundle.bundleName" name="bundleName" required #bundleName="ngModel">
                     <div *ngIf="bundleName.invalid && (bundleName.dirty || bundleName.touched)" class="error-message">
-                        Bundle Adı gerekli.
+                        Bundle Name required.
                     </div><br><br>
 
-                    <label for="bundleDescription">Bundle Açıklaması:</label><br>
-                    <textarea id="bundleDescription" [(ngModel)]="bundle.bundleDescription" name="bundleDescription" rows="4" required #bundleDescription="ngModel"></textarea>
+                    <label for="bundleDescription">Bundle Description:</label><br>
+                    <textarea id="bundleDescription" [(ngModel)]="bundle.bundleDescription" name="bundleDescription" rows="4" required #bundleDescription="ngModel" title=""></textarea>
                     <div *ngIf="bundleDescription.invalid && (bundleDescription.dirty || bundleDescription.touched)" class="error-message">
-                        Bundle Açıklaması gerekli.
+                        Bundle Description required.
                     </div><br><br>
 
-                    <label for="bundlePrice">Fiyat $:</label>
+                    <label for="totalLesson">Total Lesson:</label>
+                    <input type="text" id="totalLesson" [(ngModel)]="bundle.totalLesson" name="totalLesson" required #totalLesson="ngModel"
+                           (ngModelChange)="bundle.totalLesson = convertToNumber($event) === 0 ? '' : $event">
+                    <div *ngIf="totalLesson.invalid && (totalLesson.dirty || totalLesson.touched)" class="error-message">
+                        Total Lesson required.
+                    </div><br><br>
+
+                    <label for="bundlePrice">Price $:</label>
                     <input type="text" id="bundlePrice" [(ngModel)]="bundle.bundlePrice" name="bundlePrice" required #bundlePrice="ngModel"
                            (ngModelChange)="bundle.bundlePrice = convertToNumber($event) === 0 ? '' : $event">
                     <div *ngIf="bundlePrice.invalid && (bundlePrice.dirty || bundlePrice.touched)" class="error-message">
-                        Fiyat gerekli.
+                        Price required.
                     </div>
                 </div>
 
                 <!-- Adım 2-11: Kurs Bilgileri -->
                 <div *ngIf="currentStep > 1 && currentStep <= courses.length + 1">
-                    <h3>Adım {{ currentStep }}: Kurs {{ currentStep - 1 }} Bilgileri</h3>
+                    <h3>Step {{ currentStep }}: Course {{ currentStep - 1 }} Info</h3>
                     <div>
-                        <label for="courseName">Kurs Adı:</label>
-                        <input type="text" id="courseName" [(ngModel)]="courses[courseIndex].courseName" name="courseName" required #courseName="ngModel">
+                        <label for="courseName">Course Name:</label>
+                        <input type="text" id="courseName" [(ngModel)]="courses[currentStep - 2].courseName" name="courseName" required #courseName="ngModel">
                         <div *ngIf="courseName.invalid && (courseName.dirty || courseName.touched)" class="error-message">
-                            Kurs Adı gerekli.
+                            Course Name required.
                         </div><br><br>
-                
-                        <label for="courseDescription">Kurs Açıklaması:</label><br>
-                        <textarea id="courseDescription" [(ngModel)]="courses[courseIndex].courseDescription" name="courseDescription" rows="3" required #courseDescription="ngModel"></textarea>
+
+                        <label for="courseDescription">Course Description:</label><br>
+                        <textarea id="courseDescription" [(ngModel)]="courses[currentStep - 2].courseDescription" name="courseDescription" rows="3" required #courseDescription="ngModel"></textarea>
                         <div *ngIf="courseDescription.invalid && (courseDescription.dirty || courseDescription.touched)" class="error-message">
-                            Kurs Açıklaması gerekli.
+                            Course Description required.
                         </div><br><br>
                     </div>
                 </div>
                 
-                
-
                 <!-- Adım 12: Gözden Geçir ve Gönder -->
-                <div *ngIf="currentStep === courses.length + 2">
-                    <h3>Adım {{ currentStep }}: Gözden Geçir ve Gönder</h3>
+                <div *ngIf="currentStep === 12">
+                    <h3>Step {{ currentStep }}: Review and Submit</h3>
                     <div class="preview">
-                        <h4>Bundle Bilgileri</h4>
-                        <p><strong>Bundle Adı:</strong> {{ bundle.bundleName }}</p>
-                        <p><strong>Bundle Açıklaması:</strong> {{ bundle.bundleDescription }}</p>
-                        <p><strong>Fiyat:</strong> {{ bundle.bundlePrice | currency }}</p>
+                        <h4>Bundle Info</h4>
+                        <p><strong>Bundle Name:</strong> {{ bundle.bundleName }}</p>
+                        <p><strong>Bundle Description:</strong> {{ bundle.bundleDescription }}</p>
+                        <p><strong>Total Lesson:</strong> {{ bundle.totalLesson}}</p>
+                        <p><strong>Price $:</strong> {{ bundle.bundlePrice | currency }}</p>
                     </div>
 
                     <div class="preview">
-                        <h4>Kurs Bilgileri</h4>
+                        <h4>Course Info</h4>
                         <div *ngFor="let course of courses; let i = index" class="course-preview">
-                            <p><strong>Kurs {{ i + 1 }} Adı:</strong> {{ course.courseName }}</p>
-                            <p><strong>Kurs {{ i + 1 }} Açıklaması:</strong> {{ course.courseDescription }}</p>
+                            <p><strong>Course {{ i + 1 }} Name:</strong> {{ course.courseName }}</p>
+                            <p><strong>Course {{ i + 1 }} Description:</strong> {{ course.courseDescription }}</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- İleri, Geri ve Gönder Butonları -->
                 <div class="buttons">
-                    <button type="button" (click)="prevStep()" [disabled]="currentStep === 1">Geri</button>
-                    <button type="button" (click)="nextStep()" *ngIf="currentStep < steps.length && isStepValid()" [disabled]="!isStepValid()">İleri</button>
-                    <button type="submit" *ngIf="currentStep === steps.length" [disabled]="!bundleForm.valid || !isStepValid()">Gönder</button>
+                    <button type="button" (click)="prevStep()" [disabled]="currentStep === 1" data-title="No more steps to go backwards">Back</button>
+                    <button type="button" (click)="nextStep()" *ngIf="currentStep < steps.length" [disabled]="!isStepValid()" data-title="Fill in all fields to proceed to the next step">Next</button>
+                    <button type="submit" *ngIf="currentStep === steps.length" [disabled]="!bundleForm.valid || !isStepValid()">Submit</button>
                 </div>
             </form>
         </div>
