@@ -7,10 +7,10 @@ import { CalendarPageComponent } from './pages/general/calendar-page/calendar-pa
 import { RoleGuard } from './guards/role-guard/role.guard';
 import { CreateBundlePageComponent } from './pages/admin/create-bundle-page/create-bundle-page.component';
 import { AllLogsPageComponent } from './pages/admin/all-logs-page/all-logs-page.component';
-import { RemainingCoursesPageComponent } from './pages/admin/remaining-courses-page/remaining-courses-page.component';
 import { NotFoundPageComponent } from './pages/general/not-found-page/not-found-page.component';
 import { AdminBundlesPageComponent } from './pages/admin/admin-bundles-page/admin-bundles-page.component';
 import { RegisterPageComponent } from './pages/general/register-page/register-page.component';
+import { UsersBundlesPageComponent } from './pages/admin/users-bundles-page/users-bundles-page.component';
 
 
 const routes: Routes = [
@@ -25,7 +25,7 @@ const routes: Routes = [
 
   { path: 'create-bundle', component: CreateBundlePageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
   { path: 'all-logs', component: AllLogsPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
-  { path: 'remaining-courses', component: RemainingCoursesPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
+  { path: 'users-bundles', component: UsersBundlesPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
   { path: 'admin-bundles', component: AdminBundlesPageComponent, canActivate: [RoleGuard], data: { expectedRole: ['admin'] } },
   
   { path: '403', component: NotFoundPageComponent },

@@ -1,0 +1,57 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 10px 0;
+  }
+  
+  .toggle-button {
+    background-color: #242444;
+    color: #f28324;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+    font-size: 14px;
+  }
+  
+  .toggle-button.active {
+    background-color: #f28324;
+    color: #242444;
+  }
+  
+  .toggle-button:hover {
+    background-color: #a45c2c;
+  }
+  
+  .progress-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .progress-card {
+    background-color: #242444;
+    color: #f28324;
+    border-radius: 10px;
+    padding: 15px;
+    width: 23%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+  
+  .progress-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .progress-card h3 {
+    margin-top: 0;
+  }
+  
+  .progress-card p {
+    margin: 5px 0;
+  }
+  

@@ -20,7 +20,7 @@ export class GetAllProgressesService {
   
   constructor(private http: HttpClient) { }
 
-  getLogs(): Observable<any> {
+  getProgressActive(): Observable<any> {
     return this.http.get<progresses[]>(this.getProgressesApiUrl)
   }
 

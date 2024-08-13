@@ -36,9 +36,9 @@ export class AdminBundlesPageComponent implements OnInit {
 
   toggleBundle(index: number): void {
     if (this.openedBundleIndex === index) {
-      this.openedBundleIndex = null; // Close if the same bundle is clicked again
+      this.openedBundleIndex = null;
     } else {
-      this.openedBundleIndex = index; // Open the new bundle
+      this.openedBundleIndex = index;
     }
   }
 }

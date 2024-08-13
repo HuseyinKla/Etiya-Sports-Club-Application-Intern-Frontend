@@ -69,10 +69,11 @@ export class CreateBundlePageComponent {
 
   isStepValid(): boolean {
     if (this.currentStep === 1) {
+      Number(this.bundle.bundlePrice.replace(',', '.'));
       return this.bundle.bundleName.trim() !== '' &&
              this.bundle.bundleDescription.trim() !== '' &&
              this.convertToNumber(this.bundle.bundlePrice) > 0 &&
-             this.convertToNumber(this.bundle.totalLesson) > 0;
+             this.convertToNumber(this.bundle.totalLesson) > 0
     } else if (this.currentStep > 1 && this.currentStep <= 11) {
       const courseIndex = this.currentStep - 2;
       return this.courses[courseIndex].courseName.trim() !== '' &&
@@ -83,13 +84,13 @@ export class CreateBundlePageComponent {
              this.convertToNumber(this.bundle.bundlePrice) > 0 &&
              this.courses.every(course => course.courseName.trim() !== '' && course.courseDescription.trim() !== '');
     }
-    return true;
+    return false;
   }
 
   onSubmit() {
     const bundlePriceNumber = this.convertToNumber(this.bundle.bundlePrice);
 
-    if (isNaN(bundlePriceNumber) || bundlePriceNumber <= 0) {
+    if (isNaN(bundlePriceNumber) || bundlePriceNumber <= 0 || typeof(bundlePriceNumber) !== "number") {
       alert('The price must be greater than zero and a valid number.');
       return;
     }

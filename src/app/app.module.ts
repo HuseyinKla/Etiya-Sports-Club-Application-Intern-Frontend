@@ -17,10 +17,10 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { WrongProgressInitModalComponent } from './components/wrong-progress-init-modal/wrong-progress-init-modal.component';
 import { CreateBundlePageComponent } from './pages/admin/create-bundle-page/create-bundle-page.component';
 import { AllLogsPageComponent } from './pages/admin/all-logs-page/all-logs-page.component';
-import { RemainingCoursesPageComponent } from './pages/admin/remaining-courses-page/remaining-courses-page.component';
 import { NotFoundPageComponent } from './pages/general/not-found-page/not-found-page.component';
 import { AdminBundlesPageComponent } from './pages/admin/admin-bundles-page/admin-bundles-page.component';
 import { RegisterPageComponent } from './pages/general/register-page/register-page.component';
+import { UsersBundlesPageComponent } from './pages/admin/users-bundles-page/users-bundles-page.component';
 
 
 
@@ -38,10 +38,10 @@ import { RegisterPageComponent } from './pages/general/register-page/register-pa
     WrongProgressInitModalComponent,
     CreateBundlePageComponent,
     AllLogsPageComponent,
-    RemainingCoursesPageComponent,
     NotFoundPageComponent,
     AdminBundlesPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    UsersBundlesPageComponent
   ],
   imports: [
     BrowserModule,

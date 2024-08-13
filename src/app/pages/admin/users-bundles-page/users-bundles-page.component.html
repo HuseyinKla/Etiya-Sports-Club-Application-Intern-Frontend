@@ -1,0 +1,24 @@
+<div class="button-container">
+    <button class="toggle-button" [class.active]="selectedTab === 'remaining'" (click)="showRemainingCourses()">Remaining Courses</button>
+    <button class="toggle-button" [class.active]="selectedTab === 'noPurchase'" (click)="showNoPurchaseUsers()">No Purchase Users</button>
+  </div>
+  
+  <div class="progress-container">
+    <ng-container *ngIf="selectedTab === 'remaining'">
+      <div class="progress-card" *ngFor="let progress of progresses">
+        <h3>Member Name: {{ progress.name }}</h3>
+        <p>Bundle Name: {{ progress.bundleName }}</p>
+        <p>Remaining Courses: {{ progress.remainingCourseNumber }}</p>
+      </div>
+    </ng-container>
+  
+    <ng-container *ngIf="selectedTab === 'noPurchase'">
+      <div class="progress-card" *ngFor="let user of users">
+        <h3>Member Name: {{ user.name }}</h3>
+        <p>Member Username: {{ user.userName }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Status: No Bundle Purchased</p>
+      </div>
+    </ng-container>
+  </div>
+  
