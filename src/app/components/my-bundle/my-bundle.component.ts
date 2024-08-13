@@ -20,7 +20,7 @@ export class MyBundleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createProgress(bundleId: number, totalLessonNumber: number, processStatus: any){
+  handleProgress(bundleId: Number, totalLessonNumber: Number, processStatus: any){
 
     if(processStatus != 'NOT'){
       this.isModalVisible = !this.isModalVisible;
@@ -33,7 +33,10 @@ export class MyBundleComponent implements OnInit {
         },
         error => {
           console.error('Error creating progress:', error);
+          this.router.navigate(['/calendar']);
+
         }
+        
       )
     }
   }

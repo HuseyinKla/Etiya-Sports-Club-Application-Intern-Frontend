@@ -1,0 +1,61 @@
+p{
+    font-size: 16px;
+}
+
+.market-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+  }
+  
+.bundle-card {
+    background-color: #242444;
+    color: #f28324;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+  
+.bundle-card h3 {
+    margin-top: 0;
+    color: #f28324;
+  }
+  
+.bundle-card p {
+    color: #a45c2c;
+  }
+  
+.bundle-card:hover {
+    transform: translateY(-5px);
+  }
+  
+.preview-button {
+    background-color: #f28324;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+.preview-button:hover {
+    background-color: #d26e1d;
+  }
+  
+.buy-button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+.buy-button:hover {
+    background-color: #45a049;
+  }
+  

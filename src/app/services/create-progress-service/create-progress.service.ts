@@ -18,7 +18,6 @@ export class CreateProgressService {
       "username": this.loginService.getUsername(), 
       "bundleId": bundleId, 
       "remainingCourseNumber": totalLessonNumber, 
-      "processStatus": "PROCESSING"
     })
   }
   

@@ -10,7 +10,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MarketPageComponent } from './pages/member/market-page/market-page.component';
 import { LibraryPageComponent } from './pages/member/library-page/library-page.component';
 import { CalendarPageComponent } from './pages/general/calendar-page/calendar-page.component';
-import { BundleComponent } from './components/bundle/bundle.component';
 import { BundleModalComponent } from './components/bundle-modal/bundle-modal.component';
 import { MyBundleComponent } from './components/my-bundle/my-bundle.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -32,7 +31,6 @@ import { UsersBundlesPageComponent } from './pages/admin/users-bundles-page/user
     MarketPageComponent,
     LibraryPageComponent,
     CalendarPageComponent,
-    BundleComponent,
     BundleModalComponent,
     MyBundleComponent,
     WrongProgressInitModalComponent,
