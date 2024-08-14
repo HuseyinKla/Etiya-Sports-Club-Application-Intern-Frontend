@@ -87,10 +87,10 @@
   }
   
   .toggle:checked + .toggle-label .icon {
-    transform: rotate(90deg); /* İkon aşağıya bakıyor */
+    transform: rotate(90deg);
   }
   
   .toggle + .toggle-label .icon {
-    transform: rotate(0deg); /* İkon sağa bakıyor */
+    transform: rotate(0deg); 
   }
   

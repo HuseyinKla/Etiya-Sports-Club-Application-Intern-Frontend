@@ -2,13 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #242444; /* Arka plan rengi */
+    background-color: #242444;
     padding: 10px 20px;
   }
   
   .navbar-logo {
     font-size: 24px;
-    color: #f28324; /* Yazı rengi */
+    color: #f28324;
   }
   
   .navbar-links a {
@@ -26,7 +26,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background-color: #f28324; /* Seçili olan tabın alt çizgisi */
+    background-color: #f28324;
   }
   
   .navbar-profile a {

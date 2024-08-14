@@ -34,13 +34,11 @@ export class RegisterPageComponent implements OnInit {
 
       this.registerService.registerUser(userData).subscribe(
         response => {
-          console.log(response);
-          
+          this.router.navigate(['/login']);
         }
       )
 
     } else {
-      // Show validation errors
       this.registerForm.markAllAsTouched();
     }
   }
