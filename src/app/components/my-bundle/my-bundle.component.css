@@ -1,35 +1,45 @@
 .card {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 16px;
-  margin: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f28324;  /* Yan renk vurgusu */
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #242444;  /* Ana renk arka planı */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #ffffff;  /* Beyaz metin rengi */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card-title {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 1.7em;
+  margin-bottom: 12px;
+  color: #f28324;  /* Yan renk */
 }
 
 .card-text {
-  line-height: 1.6;
+  line-height: 1.8;
+  color: #ffffff;  /* Beyaz metin rengi */
 }
 
 .progress-button {
-  background-color: #4CAF50;
+  background-color: #f28324;  /* Yan renk */
   color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
+  padding: 12px 24px;
   font-size: 16px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
   position: relative;
+  border: none;
 }
 
 .progress-button:hover {
-  background-color: #45a049;
+  background-color: #a45c2c;  /* Koyu renk */
+  transform: translateY(-2px);
 }
 
 .progress-button:disabled {
@@ -43,12 +53,12 @@
 .progress-button:disabled::after {
   content: 'Please finish the bundle you started.';
   position: absolute;
-  top: 40px;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #f44336;
   color: white;
-  padding: 5px;
+  padding: 8px;
   border-radius: 4px;
   font-size: 12px;
   white-space: nowrap;
@@ -65,13 +75,13 @@
 }
 
 .status-not {
-  color: red;
+  color: #f44336;  /* Kırmızı: NOT durumu */
 }
 
 .status-processing {
-  color: orange;
+  color: #f28324;  /* Yan renk: PROCESSING durumu */
 }
 
 .status-finished {
-  color: green;
+  color: #4CAF50;  /* Yeşil: FINISHED durumu */
 }

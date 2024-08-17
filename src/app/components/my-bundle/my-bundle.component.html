@@ -5,24 +5,29 @@
     <h5 class="card-title">{{ bundle.bundleName }}</h5>
     <p class="card-text">
       <strong>Description:</strong> {{ bundle.bundleDescription }}<br>
-      <strong>Price:</strong> {{ bundle.bundlePrice }}<br>
+      <strong>Price:</strong> {{ bundle.bundlePrice | currency }}<br> <!-- Para birimi formatı -->
       <strong>Total Lessons:</strong> {{ bundle.totalLessonNumber }}<br>
       <strong>Purchase Date:</strong> {{ bundle.purchaseDate | date:'longDate' }}<br>
-      <strong>PROCESS STATUS:</strong> 
+      <strong>Process Status:</strong>
       <span [ngClass]="{
         'status-not': bundle.processStatus === 'NOT',
         'status-processing': bundle.processStatus === 'PROCESSING',
         'status-finished': bundle.processStatus === 'FINISHED'
       }">
-        {{ bundle.processStatus }}<br>
+        {{ bundle.processStatus }}
+      </span><br>
 
+      <span *ngIf="bundle.processStatus === 'PROCESSING'">
+        <strong>Remaining Course:</strong> {{bundle.remainingCourseNumber}}
       </span>
-      <span *ngIf="bundle.processStatus === 'PROCESSING'"> <strong>Remaining Course:</strong> {{bundle.remainingCourseNumber}}</span>
-      <span *ngIf="bundle.processStatus === 'NOT'"> <strong>Not Started Yet</strong></span>
-      <span *ngIf="bundle.processStatus === 'FINISHED'"> <strong>This Bundle Finished</strong> {{bundle.remainingCourseNumber}}</span>
-
+      <span *ngIf="bundle.processStatus === 'NOT'">
+        <strong>Not Started Yet</strong>
+      </span>
       <br>
-      <button (click)="handleProgress(bundle.bundleId, bundle.totalLessonNumber, bundle.processStatus)" [disabled]="isProgressInitButtonDisabled" class="progress-button">
+
+      <button (click)="handleProgress(bundle.bundleId, bundle.totalLessonNumber, bundle.processStatus)" 
+              [disabled]="isProgressInitButtonDisabled" 
+              class="progress-button">
         Start this bundle
       </button>
     </p>
