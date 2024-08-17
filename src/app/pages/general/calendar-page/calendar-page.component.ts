@@ -131,7 +131,6 @@ export class CalendarPageComponent implements OnInit {
     }else if(this.userRole === 'member'){
       if(!this.isProgressButtonDisabled){
         this.progressBundleService.updateProgressBundle().subscribe((data: Progress) => {
-          console.log(data);
           if(data.remainingCourseNumber == 0){
             this.isProgressButtonDisabled = true;
           }

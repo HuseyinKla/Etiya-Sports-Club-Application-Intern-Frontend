@@ -27,12 +27,10 @@ export class MyBundleComponent implements OnInit {
     }else{
       this.createProgressService.createProgress(bundleId, totalLessonNumber).subscribe(
         response => {
-          console.log('Progress created successfully:', response);
           this.router.navigate(['/calendar']);
   
         },
         error => {
-          console.error('Error creating progress:', error);
           this.router.navigate(['/calendar']);
 
         }

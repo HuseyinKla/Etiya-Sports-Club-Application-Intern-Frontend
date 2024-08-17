@@ -30,7 +30,6 @@ export class RegisterPageComponent implements OnInit {
         rolename: this.roleSelected
       };
 
-      console.log("User Data Submitted: ", userData);
 
       this.registerService.registerUser(userData).subscribe(
         response => {
