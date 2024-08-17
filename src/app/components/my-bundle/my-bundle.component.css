@@ -1,12 +1,12 @@
 .card {
-  border: 2px solid #f28324;  /* Yan renk vurgusu */
+  border: 2px solid #f28324;
   border-radius: 8px;
   padding: 20px;
   margin: 20px;
-  background-color: #242444;  /* Ana renk arka planı */
+  background-color: #242444;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
-  color: #ffffff;  /* Beyaz metin rengi */
+  color: #ffffff;
 }
 
 .card:hover {
@@ -17,16 +17,16 @@
 .card-title {
   font-size: 1.7em;
   margin-bottom: 12px;
-  color: #f28324;  /* Yan renk */
+  color: #f28324;
 }
 
 .card-text {
   line-height: 1.8;
-  color: #ffffff;  /* Beyaz metin rengi */
+  color: #ffffff;
 }
 
 .progress-button {
-  background-color: #f28324;  /* Yan renk */
+  background-color: #f28324;
   color: white;
   padding: 12px 24px;
   font-size: 16px;
@@ -38,7 +38,7 @@
 }
 
 .progress-button:hover {
-  background-color: #a45c2c;  /* Koyu renk */
+  background-color: #a45c2c;
   transform: translateY(-2px);
 }
 
@@ -75,13 +75,13 @@
 }
 
 .status-not {
-  color: #f44336;  /* Kırmızı: NOT durumu */
+  color: #f44336;
 }
 
 .status-processing {
-  color: #f28324;  /* Yan renk: PROCESSING durumu */
+  color: #f28324;
 }
 
 .status-finished {
-  color: #4CAF50;  /* Yeşil: FINISHED durumu */
+  color: #4CAF50;
 }

@@ -1,22 +1,20 @@
 <div class="modal" *ngIf="isVisible">
   <div class="modal-content">
     <span class="close" (click)="close()">&times;</span>
-    <h2>Kurs Detayları</h2>
+    <h2>Course Details</h2>
     <div class="content-container">
       <div class="bundle-card">
-        <h3>Bundle idsi: {{ courses.bundleId }}</h3>
-        <p>Bundle ismi: {{ courses.bundleName }}</p>
-        <p>Bundle açıklaması: {{ courses.bundleDescription }}</p>
-        <p>Bundle Süresi: {{ courses.totalLessonNumber }} saat</p>
+        <p>Bundle Name: {{ courses.bundleName }}</p>
+        <p>Bundle Description: {{ courses.bundleDescription }}</p>
+        <p>Total Lesson: {{ courses.totalLessonNumber }}</p>
       </div>
       <div class="courses-wrapper">
         <div class="left-column">
           <ng-container *ngFor="let course of courses.courses; let i = index">
             <ng-container *ngIf="i % 2 === 0">
               <div class="course-card">
-                <h3>Kurs idsi: {{ course.courseId }}</h3>
-                <p>Paylaşan: {{ course.courseName }}</p>
-                <p>Açıklama: {{ course.courseDescription }}</p>
+                <p>Course Name: {{ course.courseName }}</p>
+                <p>Course Description: {{ course.courseDescription }}</p>
               </div>
             </ng-container>
           </ng-container>
@@ -25,9 +23,8 @@
           <ng-container *ngFor="let course of courses.courses; let i = index">
             <ng-container *ngIf="i % 2 === 1">
               <div class="course-card">
-                <h3>Kurs idsi: {{ course.courseId }}</h3>
-                <p>Paylaşan: {{ course.courseName }}</p>
-                <p>Açıklama: {{ course.courseDescription }}</p>
+                <p>Course Name: {{ course.courseName }}</p>
+                <p>Course Description: {{ course.courseDescription }}</p>
               </div>
             </ng-container>
           </ng-container>

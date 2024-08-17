@@ -1,10 +1,10 @@
 <div class="market-container">
     <div *ngFor="let bundle of bundles" class="bundle-card">
       <h3>{{ bundle.bundleName }}</h3>
-      <p>Paylaşan: {{ bundle.name }}</p>
-      <p>Açıklama: {{ bundle.bundleDescription }}</p>
-      <p>Fiyat: {{ bundle.bundlePrice | currency }}</p>
-      <p>Ders Sayısı: {{ bundle.totalLessonNumber }}</p>
+      <p>Posted by: {{ bundle.name }}</p>
+      <p>Bundle Descripton: {{ bundle.bundleDescription }}</p>
+      <p>Price: {{ bundle.bundlePrice | currency }}</p>
+      <p>Total Lesson: {{ bundle.totalLessonNumber }}</p>
       <button class="preview-button" (click)="openModal(bundle.bundleId)">Preview</button>
       <button class="buy-button" (click)="buyBundle(bundle.bundleId)">Buy</button>
     </div>
