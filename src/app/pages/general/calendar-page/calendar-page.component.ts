@@ -134,6 +134,7 @@ export class CalendarPageComponent implements OnInit {
           if(data.remainingCourseNumber == 0){
             this.isProgressButtonDisabled = true;
           }
+          this.events[0].extendedProps
         })
       }else{
         alert("Please start a bundle");
